@@ -30,7 +30,7 @@ public class CalendarInterceptor implements HandlerInterceptor{
                 
                 Calendar calendar = Calendar.getInstance();
                 int hour = calendar.get(Calendar.HOUR_OF_DAY);
-                System.out.println(hour);
+                System.out.println("**** hora: " + hour);
 
                 if (hour>= open && hour< close){
                     StringBuilder message = new StringBuilder("Bienvenidos al horario de atencion al cliente");
@@ -55,7 +55,7 @@ public class CalendarInterceptor implements HandlerInterceptor{
                 message.append(close);
                 message.append("hrs. Gracias!");
                 data.put("message", message.toString());
-                data.put("date", new Date());
+                data.put("date", new Date().toString());
 
                 response.setContentType("application/json");
                 response.setStatus(401);
